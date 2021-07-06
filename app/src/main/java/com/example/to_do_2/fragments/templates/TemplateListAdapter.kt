@@ -50,7 +50,7 @@ class TemplateListAdapter : RecyclerView.Adapter<TemplateListAdapter.TempViewHol
         this.tmpList = tmp
         notifyDataSetChanged()
     }
-
+    
     fun removeFromFragment() {
     }
 
