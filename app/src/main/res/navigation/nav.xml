@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/listFr">
+
+    <fragment
+        android:id="@+id/listFr"
+        android:name="com.example.to_do_2.fragments.list.ListFr"
+        android:label="Заметки"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFr_to_noteFragment"
+            app:destination="@id/noteFragment" />
+        <action
+            android:id="@+id/action_listFr_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.to_do_2.fragments.add.NoteFragment"
+        android:label="Новая заметка"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_listFr"
+            app:destination="@id/listFr" />
+        <argument
+            android:name="template"
+            app:argType="com.example.to_do_2.model.Templates" />
+        <action
+            android:id="@+id/action_noteFragment_to_templateListFragment"
+            app:destination="@id/templateListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.to_do_2.fragments.update.UpdateFragment"
+        android:label="Изменить" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFr"
+            app:destination="@id/listFr" />
+        <argument
+            android:name="currentNote"
+            app:argType="com.example.to_do_2.model.Notes" />
+    </fragment>
+    <fragment
+        android:id="@+id/templateListFragment"
+        android:name="com.example.to_do_2.fragments.templates.TemplateListFragment"
+        android:label="fragment_template_list"
+        tools:layout="@layout/fragment_template_list" >
+        <action
+            android:id="@+id/action_templateListFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+</navigation>
